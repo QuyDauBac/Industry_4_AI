@@ -48,7 +48,7 @@ streamlit run app/dashboard.py
 ```
 
 Đổi cách chọn ngưỡng: thêm `--threshold-method f1|min_recall|budget` (mặc định `f1`).
-Ý nghĩa của `--time-block K` do người phụ trách `src/train.py` quy định và ghi trong docstring của file đó.
+`--time-block K`: chia dữ liệu thành `N_TIME_BLOCKS` khối liên tiếp theo thời gian; test là khối K, train là các khối 0 đến K-1 (K từ 1 đến 4).
 
 Notebook: thêm thư mục gốc vào `sys.path` (đã có sẵn ở cell đầu tiên) để `import config` và `import src...`.
 

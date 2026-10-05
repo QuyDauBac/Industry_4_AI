@@ -21,6 +21,7 @@ PASS, FAIL = 0, 1
 SEED = 42
 TEST_SIZE = 0.20          # chia theo thời gian, cắt theo số dòng
 N_FOLDS = 5               # stratified, chỉ trong train
+N_TIME_BLOCKS = 5  # số khối thời gian cho --time-block
 
 # Tiền xử lý
 MISSING_THRESHOLD = 0.70  # bỏ cột thiếu > 70% (quy ước của bài thực hành, không phải chuẩn công nghiệp)
