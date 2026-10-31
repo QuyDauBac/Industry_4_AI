@@ -324,3 +324,10 @@ Phần này được biên tập lại từ tiến trình phiên làm việc; c�
 - B bổ sung: ROC-AUC 0,5474351; AP 0,0962169; Accuracy 0,7038217; Balanced Accuracy 0,5106952; 51 quyết định bị quota giữ lại. A có 9 cảnh báo sự kiện sai trong các cửa sổ đủ mẫu và 13 cảnh báo ở cửa sổ thưa mẫu; các cửa sổ thưa không bị loại khỏi metric chính.
 - Mô phỏng A gồm 56 mốc: 27 Nguy cơ cao, 6 Cần theo dõi, 23 Bình thường. B gồm 314 mẫu: 86 Nguy cơ cao, 75 Cần theo dõi, 153 Bình thường. Chỉ Nguy cơ cao tính workload/Recall chính; các hành động là xem xét ưu tiên bởi kỹ sư QC.
 - Môi trường mở lại: Python 3.13.1; pandas 3.0.6; NumPy 2.5.4; scikit-learn 1.9.1; joblib 1.6.0. Lượt agy chẩn đoán bằng Python mặc định khác môi trường đã được dừng; không dùng các cách tùy biến unpickler, không thay đổi gói toàn cục hoặc artifact. Script đọc cuối do agy viết, root thực thi; toàn bộ thay đổi sau đánh giá chỉ nằm ở tài liệu.
+
+### 7.9 Ghi rõ tiền xử lý V1/V2 và đẩy snapshot lên GitHub — 2026-10-31
+
+- Theo yêu cầu của người dùng, bổ sung mục 5.1 trong `README.md`, mô tả riêng luồng tiền xử lý V1 và V2 từ `02_Preprocessing.ipynb` và pipeline học được trong `03_Train.ipynb`. Nội dung nêu rõ căn chỉnh thời gian, đặc trưng causal, khác biệt Branch A/Branch B của V2, lọc chất lượng cảm biến, imputation, variance filtering, lựa chọn đặc trưng theo candidate/K và scaler; không kết luận một version tốt hơn.
+- Tạo branch `tri_preprocessing` từ `origin/main` trong clone tạm `C:\Users\ductr\AppData\Local\Temp\Industry_4_AI_tri_preprocessing_push` và mirror toàn bộ 17 tệp của workspace vào gốc branch. Snapshot ban đầu được push thành công trong commit `758eb5f2b289bc3c9d9da31e39d056cefa9239eb`; `main` không thay đổi. Branch này phản ánh workspace hiện tại nên các tệp cũ chỉ có trên `main` không còn trong branch mới.
+- Đối chiếu danh sách 17 đường dẫn của workspace với Git index trước commit; hai danh sách khớp. Kiểm tra GitHub xác nhận branch mới tồn tại ở commit snapshot nêu trên.
+- Không sửa notebook hay mã nguồn; không thực thi notebook, huấn luyện, retune hoặc mở holdout. Thay đổi của tác vụ này chỉ nằm trong tài liệu; các notebook và artifact được đưa lên branch ở trạng thái sẵn có.
